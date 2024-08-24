@@ -7,32 +7,31 @@ body {
 }
 
 .container {
-    background-image: url('bg.jpg');
-    background-position: center;
-    background-repeat: no-repeat;
+    background-image: url('bg.png');
+    background-size: cover; /* Ensure the background image covers the entire container */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
     width: 100%;
-    height: 100%;
+    height: 100vh; /* Ensure the container takes up the full height of the viewport */
     display: flex;
     justify-content: center;
     align-items: center;
-    position: relative;
+    position: relative; /* Make this container the reference point for absolute positioning */
 }
 
 .fireworks-container {
     position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     pointer-events: none;
-    z-index: 1; /* Ensure fireworks are on top */
+    z-index: 2; /* Ensure fireworks are on top */
 }
 
 #fb {
-    position: relative;
-    z-index: 2; /* Ensure iframe is above the fireworks container */
+    position: absolute; 
+    top: 180px; 
+    left: 555px; 
+    z-index: 1; 
     border: none;
-    border-radius: 18px;
     overflow: hidden;
 }
 
@@ -47,6 +46,7 @@ body {
 }
 
 .image-map-container img {
+    display: none;
     width: 100%;
     height: 100%; 
     object-fit: cover;
@@ -56,6 +56,64 @@ body {
 
 .image-map-container div:hover img {
     opacity: 0.9;
+}
+
+.image-map-container img[src="Gallery.jpg"] {
+    display: block;
+}
+
+.notify {
+    position: absolute;
+    display: grid;
+    grid-template-rows: 1fr 3fr;
+    top: 115px;
+    left: 30px;
+    max-width: 200px;
+    height: 240px;
+    padding: 10px;
+    background-color:rgb(223, 200, 179);
+    border-radius: 20px;
+    box-shadow:rgb(244, 201, 164);
+    justify-content: center;
+}
+
+#comic-button {
+    grid-row: 1;
+    font-family: 'Madimi One', recursive;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color:ivory;
+    background-color: rgb(236, 203, 175);
+    border: 2px solid rgb(124, 157, 150);
+    border-radius: 10px;
+    box-shadow: 5px 5px 0px rgb(145, 207, 205);
+    transition: all 0.3s ease;
+}
+
+#comic-button:hover {
+    background-color: ivory;
+    color: rgb(145, 207, 205);
+    border: 2px solid rgb(124, 157, 150);
+    box-shadow: 5px 5px 0px rgb(236, 203, 175);
+}
+
+#comic-button:active {
+    background-color: #fcf414;
+    box-shadow: none;
+    transform: translateY(4px);
+}
+
+.notify p {
+    font-family: 'Madimi One', recursive;
+    padding: 10px;
+    grid-row: 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: ivory;
+    font-weight: bold;
+    font-size: 25px;
 }
 
 .lequydon {
@@ -145,5 +203,17 @@ body {
     color: #bbb;
     text-decoration: none;
     cursor: pointer;
+}
+
+.caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: ivory;
+    padding: 10px;
+    height: 30px;
+    font-size: 30px;;
 }
 
